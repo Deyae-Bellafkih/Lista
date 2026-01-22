@@ -55,7 +55,7 @@ public class Lista {
         size--;
     }
 
-    public void accoda(int value) {
+    public void accoda(String value) {
         Nodo newNode = new Nodo();
         newNode.setValue(String.valueOf(value));
         if (head == null) {
@@ -76,6 +76,21 @@ public class Lista {
         }
         return null;
     }
+
+    public int ricerca(String value) {
+        Nodo current = head;
+        int index = 0;
+        while (current != null) {
+            if (current.getValue().equals(value)) {
+                return index;
+            }
+            current = current.getNext();
+            index++;
+        }
+        return -1;
+    }
+
+
 }
 
 
