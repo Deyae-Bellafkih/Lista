@@ -90,6 +90,10 @@ public class Lista {
         return -1;
     }
 
+    public String toString() {
+        return "Lista{ size = " + size + ", head = " + head + ", cursor = " + cursor + " }";
+    }
+
 
 }
 
