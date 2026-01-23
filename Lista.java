@@ -72,10 +72,13 @@ public class Lista {
 
     public String visita() {
         if (cursor != null) {
-            return cursor.getValue();
+            String value = cursor.getValue();
+            cursor = cursor.getNext();
+            return value;
         }
         return null;
     }
+
 
     public int ricerca(String value) {
         Nodo current = head;
@@ -88,6 +91,22 @@ public class Lista {
             index++;
         }
         return -1;
+    }
+
+    public void eliminaValore(String value) {
+        while (head != null && head.getValue().equals(value)) {
+            head = head.getNext();
+            size--;
+        }
+        Nodo current = head;
+        while (current != null && current.getNext() != null) {
+            if (current.getNext().getValue().equals(value)) {
+                current.setNext(current.getNext().getNext());
+                size--;
+            } else {
+                current = current.getNext();
+            }
+        }
     }
 
     public String toString() {

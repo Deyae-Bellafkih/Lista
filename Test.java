@@ -5,15 +5,26 @@ public class Test {
         lista.accoda("A");
         lista.accoda("B");
         lista.accoda("C");
-        lista.inserimento("D",3);
-        lista.inserimento("E",4);
+        lista.accoda("A");
+        lista.accoda("C");
+        lista.accoda("B");
+        lista.inserimento("D", 6);
         lista.eliminazione(2);
-        lista.ricerca("E");
+        lista.eliminaValore("A");
 
-        Nodo current = lista.getHead();
-        while (current != null) {
-            System.out.println(current.getValue());
-            current = current.getNext();
+
+        lista.setCursor(lista.getHead());
+        String val;
+        System.out.println("Contenuto della lista:");
+        while ((val = lista.visita()) != null) {
+            System.out.println(val);
+        }
+
+        int pos = lista.ricerca("B");
+        if (pos != -1) {
+            System.out.println("Elemento 'B' trovato in posizione: " + pos);
+        } else {
+            System.out.println("Elemento 'B' non trovato");
         }
     }
 }
