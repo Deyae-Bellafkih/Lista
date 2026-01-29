@@ -1,4 +1,5 @@
 public class Nodo {
+    public Nodo getNext;
     private String value;
     private Nodo next;
 
@@ -11,6 +12,7 @@ public class Nodo {
         this.value = null;
         this.next = null;
     }
+
 
     public String getValue() {
         return value;

@@ -1,3 +1,5 @@
+
+
 public class Lista {
     private int size;
     private Nodo head;
@@ -108,6 +110,30 @@ public class Lista {
             }
         }
     }
+
+    public void inserimentoOrdinato(String value) {
+        if (head == null) {
+            accoda(value);
+            return;
+        }
+
+        if (value.compareToIgnoreCase(head.getValue()) <= 0) {
+            inserimento(value, 0);
+            return;
+        }
+
+        Nodo current = head;
+        int index = 0;
+
+        while (current.getNext() != null &&
+                value.compareToIgnoreCase(current.getNext().getValue()) > 0) {
+            current = current.getNext();
+            index++;
+        }
+
+        inserimento(value, index + 1);
+    }
+
 
     public String toString() {
         return "Lista{ size = " + size + ", head = " + head + ", cursor = " + cursor + " }";
